@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaADMController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AgendaProfissionalController;
 use App\Http\Controllers\ProfissionalController;
@@ -20,11 +21,21 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('Profissional/cadastro/Cliente',[ProfissionalController::class,'store']);
+Route::get('Profissional/retornarTodos',[ProfissionalController::class,'retornarTodos']);
+Route::post('Profissional/procurarNome',[ProfissionalController::class, 'pesquisarPorNome']);
+Route::post('Profissional/pesquisarCpf',[ProfissionalController::class, 'pesquisarPorCpf']);
+Route::delete('Profissional/excluir/{id}',[ProfissionalController::class, 'excluir']);
+Route::put('Profissional/atualizar', [ProfissionalController::class, 'update']);
+
+
 
 
 //AgendaProfissional
-
 Route::post('AgendaProfissional/cadastro/Horario',[AgendaProfissionalController::class,'store']);
+
+
+//AgendaADM                                                   
+Route::post('AgendaADM/cadastro/horario',[AgendaADMController::class,'store']);
 
 
 
