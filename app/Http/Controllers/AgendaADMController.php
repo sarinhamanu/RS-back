@@ -64,7 +64,7 @@ class AgendaADMController extends Controller
         ]);
         return response()->json([
             "status" => true,
-            "message" => "Agenda Cadastrada com sucesso",
+            "message" => "data_hora Cadastrada com sucesso",
             "data" => $agenda
 
         ], 200);
@@ -90,34 +90,13 @@ class AgendaADMController extends Controller
 
         return response()->json([
             'status' => false,
-            'message' => "Data não encontada"
+            'message' => "Data_hora não encontada"
         ]);
     }
 
 
 
-    public function pesquisarAgendaPorId(Request $request)
-    {
-        $agenda = AgendaADM::where('profissional_id', 'like', '%' . $request->profissional_id . '%')->get();
-
-        if (count($agenda) > 0) {
-            return response()->json([
-                'status' => true,
-                'data' => $agenda
-            ]);
-        }
-
-
-
-
-        return response()->json([
-            'status' => false,
-            'data' => 'Profissional não disponivel'
-        ]);
-    }
-
-
-
+   
 
 
 
@@ -147,14 +126,14 @@ class AgendaADMController extends Controller
         if (!isset($agenda)) {
             return response()->json([
                 'status' => false,
-                'message' => "Agenda não encontrada"
+                'message' => "horario não encontrado"
             ]);
         }
 
         $agenda->delete();
         return response()->json([
             'status' => true,
-            'message' => "Agenda excluido com sucessa"
+            'message' => "horario excluido com sucessa"
         ]);
     }
 
@@ -166,7 +145,7 @@ class AgendaADMController extends Controller
         if (!isset($agenda)) {
             return response()->json([
                 'status' => false,
-                'message' => "Agenda não encontrado"
+                'message' => "horario não encontrado"
             ]);
         }
 
@@ -205,7 +184,7 @@ class AgendaADMController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => 'Agenda atualizada.'
+            'message' => 'horario atualizada.'
         ]);
     }
 
