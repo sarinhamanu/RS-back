@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Agenda extends Model
+class AgendaProfissional extends Model
 {
     use HasFactory;
 
+    
     protected  $fillable =[
 
         'profissional_id',
@@ -18,5 +19,4 @@ class Agenda extends Model
         'tipo_pagamento',
         'valor',
     ];
-    
 }
