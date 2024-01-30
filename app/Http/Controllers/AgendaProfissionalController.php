@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AgendaFormRequest;
+use App\Http\Requests\AgendaProfissionalFormRequest;
 use App\Models\AgendaProfissional;
 use App\Models\Profissional;
 use Carbon\Carbon;
@@ -10,7 +11,7 @@ use Illuminate\Http\Request;
 
 class AgendaProfissionalController extends Controller
 {
-    public function store(AgendaFormRequest $request)
+    public function store(AgendaProfissionalFormRequest $request)
     {
 
         $dataAtual = Carbon::now('America/Sao_Paulo');
