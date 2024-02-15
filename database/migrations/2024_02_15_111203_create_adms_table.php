@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('adms', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 80)->nullable(false);
+            $table->string('email', 80)->unique()-> nullable(false);
+            $table->string('password', )->nullable(false);
             $table->timestamps();
         });
     }

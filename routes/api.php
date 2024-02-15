@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdmController;
 use App\Http\Controllers\AgendaADMController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AgendaProfissionalController;
 use App\Http\Controllers\ProfissionalController;
+use App\Http\Middleware\IsAuthenticated;
+use App\Http\Middleware\SetSanctumGuard;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +40,15 @@ Route::post('AgendaProfissional/cadastro/Horario',[AgendaProfissionalController:
 
 //AgendaADM                                                   
 Route::post('AgendaADM/cadastro/horario',[AgendaADMController::class,'store']);
+
+//login
+Route::post('/create',[AdmController::class, 'store']);
+Route::post('/login',[AdmController::class, 'login']);
+
+
+Route::get('Admin/teste', [AdmController::class,'verificarUsuarioLongado'])->middleware(['auth:sanctum', SetSanctumGuard::class, IsAuthenticated::class]);
+
+
 
 
 
